@@ -7,8 +7,6 @@ import New from './pages/New';
 import Edit from './pages/Edit';
 import Notfound from './pages/Notfound';
 
-// import getEmotionImage from './util/get-emotion-images';
-
 const mockData = [
 	{ id: 1, createDate: new Date().getTime(), emotionId: 1, content: '1번일기장' },
 	{ id: 2, createDate: new Date().getTime(), emotionId: 2, content: '2번일기장' },
@@ -64,24 +62,6 @@ function App() {
 	};
 	return (
 		<>
-			<button
-				onClick={() => {
-					onCreate(new Date().getTime(), 1, 'hello');
-				}}>
-				일기추가
-			</button>
-			<button
-				onClick={() => {
-					onUpdate(1, new Date().getTime(), 3, '수정수정');
-				}}>
-				일기수정
-			</button>
-			<button
-				onClick={() => {
-					onDelete(1);
-				}}>
-				일기삭제
-			</button>
 			<DiaryStateContext.Provider value={data}>
 				<DiaryDispathContext.Provider value={{ onCreate, onUpdate, onDelete }}>
 					<Routes>
