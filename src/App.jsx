@@ -8,9 +8,11 @@ import Edit from './pages/Edit';
 import Notfound from './pages/Notfound';
 
 const mockData = [
-	{ id: 1, createDate: new Date().getTime(), emotionId: 1, content: '1번일기장' },
-	{ id: 2, createDate: new Date().getTime(), emotionId: 2, content: '2번일기장' },
-	{ id: 3, createDate: new Date().getTime(), emotionId: 3, content: '3번일기장' },
+	{ id: 1, createDate: new Date('2025-03-07').getTime(), emotionId: 1, content: '1번일기장' },
+	{ id: 2, createDate: new Date('2025-03-05').getTime(), emotionId: 2, content: '2번일기장' },
+	{ id: 3, createDate: new Date('2025-03-05').getTime(), emotionId: 3, content: '3번일기장' },
+	{ id: 4, createDate: new Date('2025-01-05').getTime(), emotionId: 4, content: '4번일기장' },
+	{ id: 5, createDate: new Date('2025-02-04').getTime(), emotionId: 5, content: '5번일기장' },
 ];
 function reducer(state, action) {
 	console.log(action);
@@ -24,12 +26,12 @@ function reducer(state, action) {
 	}
 }
 
-const DiaryStateContext = createContext();
-const DiaryDispathContext = createContext();
+export const DiaryStateContext = createContext();
+export const DiaryDispathContext = createContext();
 
 function App() {
 	const [data, dispath] = useReducer(reducer, mockData);
-	const idRef = useRef(4);
+	const idRef = useRef(6);
 
 	const onCreate = (createDate, emotionId, content) => {
 		dispath({
